@@ -24,16 +24,18 @@ Tabellen für die verschiedenen Läufe
 3. Lauf Jahrgang 9&10
 4. Lauf Jahrgang Oberstufe
 
-Atribiute in den Tabellen 
+Atribiute in den Tabellen: 
 
+Schüler_id
 Name
 Vorname 
 Klasse
 Sportlehrkraft 
 Zeit
 
-Datenbank 
-=======
-ja
-Yallah
->>>>>>> 1a192daf27a4ca2715f801ce4a2b6a1ec59e7759
+Webseite
+
+Pennel zum eingeben der Laufzeiten 
+Startwebseite mit Datum des Seelaufs 
+Top Ranking "schnellste Zeiten"
+Verschiedene Seitenverknüfungen für die einzelnen Laufgruppen
