@@ -13,6 +13,25 @@ Gruppe erstellt: Luc,Yannes & Kevin
 
 Was brauchen wir?
 
+Python Code
+HTML & CSS Seite
+Datenbank mit Tabellen
+
+Tabellen für die verschiedenen Läufe
+
+1. Lauf Jahrgang 5&6
+2. Lauf Jahrgang 7&8
+3. Lauf Jahrgang 9&10
+4. Lauf Jahrgang Oberstufe
+
+Atribiute in den Tabellen 
+
+Name
+Vorname 
+Klasse
+Sportlehrkraft 
+Zeit
+
 Datenbank 
 =======
 ja
