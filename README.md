@@ -35,7 +35,8 @@ Zeit
 
 Webseite
 
-Pennel zum eingeben der Laufzeiten 
+Panel zum eingeben der Laufzeiten 
 Startwebseite mit Datum des Seelaufs 
 Top Ranking "schnellste Zeiten"
 Verschiedene Seitenverknüfungen für die einzelnen Laufgruppen
+    
