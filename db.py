@@ -1,13 +1,13 @@
 import sqlite3
 
 def verbindung_herstellen():
-    return sqlite3.connect("Läufer Schüler.db")
+    return sqlite3.connect("Läufer-Schüler.db")
 
 def schüler_hinzufügen(name, Vorname, klasse, sportlehrer,zeit):
     verbindung = verbindung_herstellen()
     cursor = verbindung.cursor()
     cursor.execute("""
-    INSERT INTO Läufer Schüler (name, vorname, klasse, sportlehrer, zeit)
+    INSERT INTO Laeufer (name, vorname, klasse, sportlehrer, zeit)
     VALUES (?, ?, ?, ?)
     """, (name, Vorname, klasse, sportlehrer, zeit))
     verbindung.commit()
@@ -18,7 +18,7 @@ def schüler_hinzufügen(name, Vorname, klasse, sportlehrer,zeit):
 verbindung = verbindung_herstellen()
 cursor = verbindung.cursor()
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS Läufer Schüler (
+CREATE TABLE IF NOT EXISTS Laeufer (
     schüler_id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT,
     vorname TEXT,
@@ -27,3 +27,6 @@ CREATE TABLE IF NOT EXISTS Läufer Schüler (
     zeit FLOAT
                )
                """)
+
+verbindung.commit() # speichert Änderungen
+verbindung.close() # schließt die Verbindung
