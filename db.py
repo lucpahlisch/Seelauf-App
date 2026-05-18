@@ -3,7 +3,7 @@ import sqlite3
 def verbindung_herstellen():
     return sqlite3.connect("Läufer Schüler.db")
 
-def produkte_hinzufügen(name, Vorname, klasse, sportlehrer,zeit):
+def schüler_hinzufügen(name, Vorname, klasse, sportlehrer,zeit):
     verbindung = verbindung_herstellen()
     cursor = verbindung.cursor()
     cursor.execute("""
