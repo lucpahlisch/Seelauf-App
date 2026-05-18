@@ -7,7 +7,7 @@ def produkte_hinzufügen(name, Vorname, klasse, sportlehrer,zeit):
     verbindung = verbindung_herstellen()
     cursor = verbindung.cursor()
     cursor.execute("""
-    INSERT INTO einkaufsliste (name, vorname, klasse, sportlehrer, zeit)
+    INSERT INTO Läufer Schüler (name, vorname, klasse, sportlehrer, zeit)
     VALUES (?, ?, ?, ?)
     """, (name, Vorname, klasse, sportlehrer, zeit))
     verbindung.commit()
@@ -18,7 +18,7 @@ def produkte_hinzufügen(name, Vorname, klasse, sportlehrer,zeit):
 verbindung = verbindung_herstellen()
 cursor = verbindung.cursor()
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS einkaufsliste (
+CREATE TABLE IF NOT EXISTS Läufer Schüler (
     schüler_id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT,
     vorname TEXT,
