@@ -1,7 +1,7 @@
 import sqlite3
 
 def verbindung_herstellen():
-    return sqlite3.connect("Läufer.db")
+    return sqlite3.connect("Läufer Schüler.db")
 
 def produkte_hinzufügen(name, Vorname, klasse, sportlehrer,zeit):
     verbindung = verbindung_herstellen()
