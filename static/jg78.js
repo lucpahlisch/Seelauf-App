@@ -1,4 +1,4 @@
-const jg56 = {
+const jg78 = {
     "7a": [
         { name: "", zeit: "" },
         { name: "", zeit: "" }
