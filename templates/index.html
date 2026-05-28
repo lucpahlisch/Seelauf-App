@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seelauf</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <a href="index.html">Home</a>
-    <a href="zeiten.html">Zeiten</a>
-    <a href="verwalten.html">Verwalten</a>
+    <a href="{{url_for('startseite')}}">Home</a>
+    <a href="{{url_for('zeiten')}}">Zeiten</a>
+    <a href="{{url_for('verwalten')}}">Verwalten</a>
     
     <h1>Seelauf</h1>
     <h4>XX.XX.2026</h4>
