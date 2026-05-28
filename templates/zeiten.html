@@ -2,102 +2,66 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zeiten</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background: #f4f4f4;
-        }
-
         table {
             width: 100%;
             border-collapse: collapse;
-            background: white;
-            margin-top: 20px;
         }
 
         th, td {
-            border: 1px solid #ccc;
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background: #222;
-            color: white;
+            border: 1px solid black;
+            padding: 10px;
         }
     </style>
 </head>
 
 <body>
-<h1>Laufzeiten Schüler</h1>
 
-<!-- Jahrgang 5/6 -->
-<h2>JG 5/6</h2>
+    <h1>Laufzeiten</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>Klasse</th>
-            <th>Name</th>
-            <th>Zeit</th>
-        </tr>
-    </thead>
+    <table>
+        <thead>
+            <tr>
+                <th>JG</th>
+                <th>Klasse</th>
+                <th>Name</th>
+                <th>Zeit</th>
+            </tr>
+        </thead>
 
-    <tbody>
+        <tbody id="tableBody"></tbody>
+    </table>
 
-        <tr>
-            <td>5a</td>
-            <td></td>
-            <td></td>
-        </tr>
+    <script src="jg56.js"></script>
+    <script src="jg78.js"></script>
 
-        <tr>
-            <td>5b</td>
-            <td></td>
-            <td></td>
-        </tr>
+<script>
+    const table = document.getElementById("tableBody");
 
-        <tr>
-            <td>5c</td>
-            <td></td>
-            <td></td>
-        </tr>
+    function datenEinfügen(daten, jahrgang) {
 
-    </tbody>
-</table>
+        for (let klasse in daten) {
 
+            daten[klasse].forEach(schueler => {
 
-<!-- Jahrgang 7/8 -->
-<h2>JG 7/8</h2>
+                table.innerHTML += `
+                    <tr>
+                        <td>${jahrgang}</td>
+                        <td>${klasse}</td>
+                        <td>${schueler.name}</td>
+                        <td>${schueler.zeit}</td>
+                    </tr>
+                `;
+            });
 
-<table>
-    <thead>
-        <tr>
-            <th>Klasse</th>
-            <th>Name</th>
-            <th>Zeit</th>
-        </tr>
-    </thead>
+        }
+    }
 
-    <tbody>
+    datenEinfügen(jg56, "JG 5/6");
+    datenEinfügen(jg78, "JG 7/8");
+</script>
 
-        <tr>
-            <td>7a</td>
-            <td></td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td>7b</td>
-            <td></td>
-            <td></td>
-        </tr>
-
-    </tbody>
-</table>
 </body>
 </html>
