@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <title>Zeiten</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
 
     <style>
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-bottom: 30px;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid black;
             padding: 10px;
         }
@@ -19,49 +25,71 @@
 
 <body>
 
+    <a href="{{ url_for('startseite') }}">Home</a>
+    <a href="{{ url_for('zeiten') }}">Zeiten</a>
+    <a href="{{ url_for('verwalten') }}">Verwalten</a>
+
     <h1>Laufzeiten</h1>
+
+    <h2>JG 5/6</h2>
 
     <table>
         <thead>
             <tr>
-                <th>JG</th>
                 <th>Klasse</th>
                 <th>Name</th>
                 <th>Zeit</th>
             </tr>
         </thead>
 
-        <tbody id="tableBody"></tbody>
+        <tbody id="jg56Table"></tbody>
     </table>
 
-    <script src="jg56.js"></script>
-    <script src="jg78.js"></script>
+    <h2>JG 7/8</h2>
 
-<script>
-    const table = document.getElementById("tableBody");
+    <table>
+        <thead>
+            <tr>
+                <th>Klasse</th>
+                <th>Name</th>
+                <th>Zeit</th>
+            </tr>
+        </thead>
 
-    function datenEinfügen(daten, jahrgang) {
+        <tbody id="jg78Table"></tbody>
+    </table>
 
-        for (let klasse in daten) {
+    <script src="{{ url_for('static', filename='jg56.js') }}"></script>
+    <script src="{{ url_for('static', filename='jg78.js') }}"></script>
 
-            daten[klasse].forEach(schueler => {
+    <script>
 
-                table.innerHTML += `
-                    <tr>
-                        <td>${jahrgang}</td>
-                        <td>${klasse}</td>
-                        <td>${schueler.name}</td>
-                        <td>${schueler.zeit}</td>
-                    </tr>
-                `;
-            });
+        function erstelleTabelle(daten, tableId) {
 
+            const table = document.getElementById(tableId);
+
+            for (let klasse in daten) {
+
+                daten[klasse].forEach(schueler => {
+
+                    table.innerHTML += `
+                        <tr>
+                            <td>${klasse}</td>
+                            <td>${schueler.name}</td>
+                            <td>${schueler.zeit}</td>
+                        </tr>
+                    `;
+
+                });
+
+            }
         }
-    }
 
-    datenEinfügen(jg56, "JG 5/6");
-    datenEinfügen(jg78, "JG 7/8");
-</script>
+        erstelleTabelle(jg56, "jg56Table");
+        erstelleTabelle(jg78, "jg78Table");
+
+    </script>
 
 </body>
+
 </html>
