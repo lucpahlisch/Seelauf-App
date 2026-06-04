@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seelauf</title>
+    <link rel="shortcut icon" href="/static/images/logo.svg">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <a href="{{url_for('startseite')}}">Home</a>
+    <a href="{{url_for('startseite')}}" target="_blank">Home</a>
     <a href="{{url_for('zeiten')}}">Zeiten</a>
     <a href="{{url_for('verwalten')}}">Verwalten</a>
+    <div class="line"></div>
     
     <h1>Seelauf</h1>
     <h4>XX.XX.2026</h4>
+    <img src="/static/images/logo.png" height="400px">
 </body>
 </html>
