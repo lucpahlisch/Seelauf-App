@@ -92,34 +92,42 @@
     <script src="{{ url_for('static', filename='jg910.js') }}"></script>
     <script src="{{ url_for('static', filename='obs.js') }}"></script>
 
-    <script>
+   <script>
 
-        function erstelleTabelle(daten, tableId) {
+function erstelleTabelle(daten, tableId) {
 
-            const table = document.getElementById(tableId);
+    const table = document.getElementById(tableId);
 
-            for (let klasse in daten) {
+    for (let klasse in daten) {
 
-                daten[klasse].forEach(schueler => {
+        daten[klasse].forEach(schueler => {
 
-                    table.innerHTML += `
-                        <tr>
-                            <td>${klasse}</td>
-                            <td>${schueler.name}</td>
-                            <td>${schueler.zeit}</td>
-                        </tr>
-                    `;
-
-                });
-
+            if (
+                schueler.name.trim() === "" &&
+                schueler.zeit.trim() === ""
+            ) {
+                return;
             }
-        }
 
-        erstelleTabelle(jg56, "JG5/6Tablle");
-        erstelleTabelle(jg78, "JG7/8Tablle");
-        erstelleTabelle(jg910, "JG9/10Tablle");
-        erstelleTabelle(obs, "OberstufeTablle");
-    </script>
+            table.innerHTML += `
+                <tr>
+                    <td>${klasse}</td>
+                    <td>${schueler.name}</td>
+                    <td>${schueler.zeit}</td>
+                </tr>
+            `;
+
+        });
+
+    }
+}
+
+erstelleTabelle(jg56, "jg56Table");
+erstelleTabelle(jg78, "jg78Table");
+erstelleTabelle(jg910, "jg910Table");
+erstelleTabelle(obs, "obsTable");
+
+</script>
 
 </body>
 
