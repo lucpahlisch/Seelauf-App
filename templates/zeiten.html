@@ -32,6 +32,17 @@
 
     <h1>Laufzeiten</h1>
 
+<p>Anzahl: {{ daten|length }}</p>
+
+{% for schueler in daten %}
+    <p>
+        {{ schueler["jahrgang"] }} |
+        {{ schueler["klasse"] }} |
+        {{ schueler["vorname"] }} |
+        {{ schueler["name"] }} |
+        {{ schueler["zeit"] }}
+    </p>
+{% endfor %}
     <h2>JG 5/6</h2>
 
     <table>
@@ -43,7 +54,21 @@
             </tr>
         </thead>
 
-        <tbody id="JG5/6Tablle"></tbody>
+        <tbody>
+
+        {% for schueler in daten %}
+            {% if schueler["jahrgang"] == "JG 5/6" %}
+                <tr>
+                    <td>{{ schueler["klasse"] }}</td>
+                    <td>{{ schueler["name"] }}</td>
+                    <td>{{ schueler["zeit"] }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+
+        </tbody>
+
+</tbody>
     </table>
 
     <h2>JG 7/8</h2>
@@ -57,7 +82,19 @@
             </tr>
         </thead>
 
-        <tbody id="JG7/8Tablle"></tbody>
+        <tbody>
+
+        {% for schueler in daten %}
+            {% if schueler["jahrgang"] == "JG 7/8" %}
+                <tr>
+                    <td>{{ schueler["klasse"] }}</td>
+                    <td>{{ schueler["name"] }}</td>
+                    <td>{{ schueler["zeit"] }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+
+        </tbody>
     </table>
 
     <h2>JG 9/10</h2>
@@ -71,7 +108,19 @@
             </tr>
         </thead>
 
-        <tbody id="JG9/10Tablle"></tbody>
+        <tbody>
+
+        {% for schueler in daten %}
+            {% if schueler["jahrgang"] == "JG 9/10" %}
+                <tr>
+                    <td>{{ schueler["klasse"] }}</td>
+                    <td>{{ schueler["name"] }}</td>
+                    <td>{{ schueler["zeit"] }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+
+        </tbody>
     </table>
 
     <h2>Oberstufe</h2>
@@ -85,46 +134,21 @@
             </tr>
         </thead>
 
-        <tbody id="OberstufeTablle"></tbody>
+        <tbody>
+
+        {% for schueler in daten %}
+            {% if schueler["jahrgang"] == "JG 5/6" %}
+                <tr>
+                    <td>{{ schueler["klasse"] }}</td>
+                    <td>{{ schueler["name"] }}</td>
+                    <td>{{ schueler["zeit"] }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+
+        </tbody>
 
     </table>
-   <script>
-
-function erstelleTabelle(daten, tableId) {
-
-    const table = document.getElementById(tableId);
-
-    for (let klasse in daten) {
-
-        daten[klasse].forEach(schueler => {
-
-            if (
-                schueler.name.trim() === "" &&
-                schueler.zeit.trim() === ""
-            ) {
-                return;
-            }
-
-            table.innerHTML += `
-                <tr>
-                    <td>${klasse}</td>
-                    <td>${schueler.name}</td>
-                    <td>${schueler.zeit}</td>
-                </tr>
-            `;
-
-        });
-
-    }
-}
-
-erstelleTabelle(jg56, "jg56Table");
-erstelleTabelle(jg78, "jg78Table");
-erstelleTabelle(jg910, "jg910Table");
-erstelleTabelle(obs, "obsTable");
-
-</script>
-
 </body>
 
 </html>

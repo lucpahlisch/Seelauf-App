@@ -52,9 +52,36 @@
         placeholder="12:45"
     >
 
-    <button type="submit">
-        Schüler hinzufügen
-    </button>
+<button type="submit" name="hinzufuegen">
+    Schüler hinzufügen
+</button>
 </form>
+    <h2>Schüler löschen</h2>
+
+    <form method="POST">
+
+        <select name="schueler_id" required>
+
+            {% for s in schueler %}
+
+                <option value="{{ s['rowid'] }}">
+
+                    {{ s["jahrgang"] }} |
+                    {{ s["klasse"] }} |
+                    {{ s["vorname"] }}
+                    {{ s["name"] }} |
+                    {{ s["zeit"] }}
+
+                </option>
+
+            {% endfor %}
+
+        </select>
+
+        <button type="submit" name="loeschen">
+            Schüler löschen
+        </button>
+
+    </form>
 </body>
 </html>
