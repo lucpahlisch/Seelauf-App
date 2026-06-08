@@ -8,7 +8,7 @@ def schüler_hinzufügen(name, Vorname, klasse, sportlehrer,zeit):
     cursor = verbindung.cursor()
     cursor.execute("""
     INSERT INTO Laeufer (name, vorname, klasse, sportlehrer, zeit)
-    VALUES (?, ?, ?, ?)
+    VALUES (?, ?, ?, ?,?)
     """, (name, Vorname, klasse, sportlehrer, zeit))
     verbindung.commit()
     verbindung.close()
