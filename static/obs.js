@@ -1,6 +1,6 @@
 const obs = {
+
     "E(W)": [
-        { name: "", zeit: "" },
         { name: "", zeit: "" }
     ],
 
@@ -10,13 +10,10 @@ const obs = {
 
     "E(S)": [
         { name: "", zeit: "" }
-
     ],
 
-    "E(G)": [
+    "E(B)": [
         { name: "", zeit: "" }
-
-    ],
-
+    ]
 
 };
