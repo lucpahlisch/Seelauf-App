@@ -13,6 +13,48 @@
     <a href="{{url_for('verwalten')}}">Verwalten</a>
     <div class="line"></div>
     <h1>Verwaltung von der Datenbank</h1>
-    <h4>ich weiß nicht wie ich das elegant nennen soll</h4>
+    
+<form method="POST">
+
+    <input
+        type="text"
+        name="name"
+        placeholder="Name"
+        required
+    >
+
+    <input
+        type="text"
+        name="vorname"
+        placeholder="Vorname"
+        required
+    >
+
+    <select name="jahrgang">
+
+        <option value="JG 5/6">JG 5/6</option>
+        <option value="JG 7/8">JG 7/8</option>
+        <option value="JG 9/10">JG 9/10</option>
+        <option value="OBS">Oberstufe</option>
+
+    </select>
+
+    <input
+        type="text"
+        name="klasse"
+        placeholder="5a"
+        required
+    >
+
+    <input
+        type="text"
+        name="zeit"
+        placeholder="12:45"
+    >
+
+    <button type="submit">
+        Schüler hinzufügen
+    </button>
+</form>
 </body>
 </html>
