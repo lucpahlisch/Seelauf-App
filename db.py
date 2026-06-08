@@ -24,7 +24,8 @@ CREATE TABLE IF NOT EXISTS Laeufer (
     vorname TEXT,
     klasse TEXT,
     sportlehrer TEXT,
-    zeit FLOAT
+    zeit FLOAT,
+    jahrgang TEXT
                )
                """)
 
