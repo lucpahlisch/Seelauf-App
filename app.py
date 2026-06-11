@@ -7,6 +7,9 @@ app = Flask(__name__)
 @app.route ("/")
 def startseite():
     return render_template ("index.html") # Hier den Namen der HTML-Datei angeben, die geladen werden soll.
+@app.route ("/manu")
+def manu():
+    return render_template ("a.html") # Hier den Namen der HTML-Datei angeben, die geladen werden soll.
 
 @app.route("/verwalten", methods=["GET", "POST"])
 def verwalten():
