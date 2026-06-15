@@ -35,17 +35,16 @@ def verwalten():
 
         if "loeschen" in request.form:
             schueler_id = request.form["schueler_id"]
+
             cur.execute("""
                 DELETE FROM Laeufer
                 WHERE rowid = ?
-            """, (schueler_id,))
-        conn.commit()
-        conn.close()
+            """, (int(schueler_id),))
 
         return redirect("/verwalten")
 
     schueler = cur.execute("""
-        SELECT rowid, * FROM Laeufer
+        SELECT rowid AS id, * FROM Laeufer
         ORDER BY jahrgang, klasse, name
     """).fetchall()
     conn.close()
