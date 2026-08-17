@@ -39,3 +39,15 @@ Startwebseite mit Datum des Seelaufs
 Top Ranking "schnellste Zeiten"
 Verschiedene Seitenverknüfungen für die einzelnen Laufgruppen
     
+
+Probleme:
+- Einträge können nicht aus der Datenbank gelöscht werden
+- Einträge in der Datenbank doppeln sich
+- Das hinzufügen von Einträgen in die Datenbank ist profund fehlerhaft
+- Interface ist arsch
+
+Noch zu tun:
+- Probleme beheben
+- Hinzufügen von Lehrern und Externen in die Datenbank ermöglichen
+- Bestenliste hinzufügen
+- Stoppuhr hinzufügen
