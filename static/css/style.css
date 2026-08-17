@@ -6,10 +6,11 @@ body {
 /*Button styling ist noch provisorisch. 
 Das Design der Buttons mit mit in das Styling 
 der Seite eingebunden werden.
-Deshalb bitte noch nicht ändern.*/
+Deshalb bitte noch nicht ändern.
+#1167AA*/
 
 a:link, a:visited {
-    background-color: #00c220;
+    background-color: #187bc7;
     color: rgb(0, 0, 0);
     padding: 10px 20px;
     text-align: center;
@@ -19,7 +20,7 @@ a:link, a:visited {
 }
 
 a:hover, a:active {
-    background-color: #3d8830;
+    background-color: #1c8be0;
 }
 
 .line{
