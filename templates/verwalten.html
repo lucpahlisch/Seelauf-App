@@ -1,92 +1,90 @@
+<!-- ...existing code... -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
+    <title>Verwalten</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.svg') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verwaltung und so</title>
-    <link rel="shortcut icon" href="/static/images/logo.svg">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .form-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,250,255,0.95));
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            box-shadow: 0 8px 20px rgba(13,36,64,0.04);
+        }
+        .form-grid { display: flex; gap: 12px; flex-wrap: wrap; }
+        .form-grid input, .form-grid select {
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(11,37,64,0.08);
+            font-size: 14px;
+            min-width: 160px;
+        }
+    </style>
 </head>
 <body>
-    <a href="{{url_for('startseite')}}">Home</a>
-    <a href="{{url_for('zeiten')}}">Zeiten</a>
-    <a href="{{url_for('verwalten')}}">Verwalten</a>
-    <div class="line"></div>
-    <h1>Verwaltung von der Datenbank</h1>
-    
-<form method="POST">
+    <header class="site-header">
+        <nav class="nav">
+            <div class="nav-left">
+                <a class="brand" href="{{ url_for('startseite') }}">
+                    <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Seelauf" class="brand-logo">
+                    <span>Seelauf</span>
+                </a>
+            </div>
+            <div class="nav-right">
+                <a class="btn" href="{{ url_for('startseite') }}">Home</a>
+                <a class="btn" href="{{ url_for('zeiten') }}">Zeiten</a>
+                <a class="btn" href="{{ url_for('verwalten') }}">Verwalten</a>
+            </div>
+        </nav>
+    </header>
 
-    <input
-        type="text"
-        name="name"
-        placeholder="Name"
-        required
-    >
+    <main class="container">
+        <section class="form-card">
+            <h1>Schüler hinzufügen</h1>
+            <form method="POST" class="form-grid">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="text" name="vorname" placeholder="Vorname" required>
+                <select name="jahrgang">
+                    <option value="JG 5/6">JG 5/6</option>
+                    <option value="JG 7/8">JG 7/8</option>
+                    <option value="JG 9/10">JG 9/10</option>
+                    <option value="OBS">Oberstufe</option>
+                </select>
+                <input type="text" name="klasse" placeholder="5a" required>
+                <input type="text" name="zeit" placeholder="12:45">
+                <div style="flex-basis:100%;"></div>
+                <button class="btn" type="submit" name="hinzufuegen">Schüler hinzufügen</button>
+            </form>
+        </section>
 
-    <input
-        type="text"
-        name="vorname"
-        placeholder="Vorname"
-        required
-    >
+        <section class="form-card">
+            <h2>Schüler löschen</h2>
+            <form method="POST">
+                <select name="schueler_id" required style="padding:10px;border-radius:10px;border:1px solid rgba(11,37,64,0.08);min-width:320px;">
+                    {% for s in schueler %}
+                        <option value="{{ s['id'] }}">
+                            {{ s["jahrgang"] }} | {{ s["klasse"] }} | {{ s["vorname"] }} {{ s["name"] }} | {{ s["zeit"] }}
+                        </option>
+                    {% endfor %}
+                </select>
+                <div style="margin-top:12px;">
+                    <button class="btn" type="submit" name="loeschen">Schüler löschen</button>
+                </div>
+            </form>
+        </section>
 
-    <select name="jahrgang">
+        <section class="form-card" style="text-align:center;">
+            <img src="{{ url_for('static', filename='images/bild.jpg') }}" alt="Bild" style="max-width:100%;border-radius:10px;box-shadow:0 8px 20px rgba(7,52,90,0.06);">
+        </section>
+    </main>
 
-        <option value="JG 5/6">JG 5/6</option>
-        <option value="JG 7/8">JG 7/8</option>
-        <option value="JG 9/10">JG 9/10</option>
-        <option value="OBS">Oberstufe</option>
-
-    </select>
-
-    <input
-        type="text"
-        name="klasse"
-        placeholder="5a"
-        required
-    >
-
-    <input
-        type="text"
-        name="zeit"
-        placeholder="12:45"
-    >
-
-<button type="submit" name="hinzufuegen">
-    Schüler hinzufügen
-</button>
-</form>
-
-    <h2>Schüler löschen</h2>
-
-    <form method="POST">
-
-        <select name="schueler_id" required>
-
-            {% for s in schueler %}
-
-                <option value="{{ s['id'] }}">
-
-                    {{ s["jahrgang"] }} |
-                    {{ s["klasse"] }} |
-                    {{ s["vorname"] }}
-                    {{ s["name"] }} |
-                    {{ s["zeit"] }}
-
-                </option>
-
-            {% endfor %}
-
-        </select>
-
-        <button type="submit" name="loeschen">
-            Schüler löschen
-        </button>
-
-    </form>
-
-    <img src="{{ url_for('static', filename='images/bild.jpg') }}" height="400">
-
-
+    <footer class="site-footer">
+        <p>&copy; 2026 Seelauf — Alle Rechte vorbehalten</p>
+    </footer>
 </body>
 </html>
+<!-- ...existing code... -->
