@@ -135,9 +135,107 @@
         </section>
     </main>
 
+<<<<<<< HEAD
     <footer class="site-footer">
         <p>&copy; 2026 Seelauf — Alle Rechte vorbehalten</p>
     </footer>
+=======
+        <tbody>
+
+        {% for schueler in daten %}
+            {% if schueler["jahrgang"] == "JG 5/6" %}
+                <tr>
+                    <td>{{ schueler["klasse"] }}</td>
+                    <td>{{ schueler["name"] }}</td>
+                    <td>{{ schueler["zeit"] }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+
+        </tbody>
+
+</tbody>
+    </table>
+
+    <h2>JG 7/8</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Klasse</th>
+                <th>Name</th>
+                <th>Zeit</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for schueler in daten %}
+            {% if schueler["jahrgang"] == "JG 7/8" %}
+                <tr>
+                    <td>{{ schueler["klasse"] }}</td>
+                    <td>{{ schueler["name"] }}</td>
+                    <td>{{ schueler["zeit"] }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+    <h2>JG 9/10</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Klasse</th>
+                <th>Name</th>
+                <th>Zeit</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for schueler in daten %}
+            {% if schueler["jahrgang"] == "JG 9/10" %}
+                <tr>
+                    <td>{{ schueler["klasse"] }}</td>
+                    <td>{{ schueler["name"] }}</td>
+                    <td>{{ schueler["zeit"] }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+    <h2>Oberstufe</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Klasse</th>
+                <th>Name</th>
+                <th>Zeit</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for schueler in daten %}
+            {% if schueler["jahrgang"] == "Oberstufe" %}
+                <tr>
+                    <td>{{ schueler["klasse"] }}</td>
+                    <td>{{ schueler["name"] }}</td>
+                    <td>{{ schueler["zeit"] }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+>>>>>>> d34aeab17c58ad9505fee81419b62ac1f9376e19
 </body>
 </html>
 <!-- ...existing code... -->
