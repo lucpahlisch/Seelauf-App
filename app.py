@@ -13,35 +13,42 @@ def manu():
 
 @app.route("/verwalten", methods=["GET", "POST"])
 def verwalten():
+    with sqlite3.connect("Läufer-Schüler.db") as conn:
+        conn.row_factory = sqlite3.Row
+        cur = conn.cursor()
 
-    conn = sqlite3.connect("Läufer-Schüler.db")
-    conn.row_factory = sqlite3.Row
-    cur = conn.cursor()
+        if request.method == "POST":
+            if "hinzufuegen" in request.form:
+                cur.execute("""
+                    INSERT INTO Laeufer
+                    (name, vorname, klasse, jahrgang, zeit)
+                    VALUES (?, ?, ?, ?, ?)
+                """, (
+                    request.form["name"],
+                    request.form["vorname"],
+                    request.form["klasse"],
+                    request.form["jahrgang"],
+                    request.form["zeit"]
+                ))
 
-    if request.method == "POST":
+            elif "loeschen" in request.form:
+                schueler_id = int(request.form["schueler_id"])
 
-        if "hinzufuegen" in request.form:
-            name = request.form["name"]
-            vorname = request.form["vorname"]
-            jahrgang = request.form["jahrgang"]
-            klasse = request.form["klasse"]
-            zeit = request.form["zeit"]
+                cur.execute("""
+                    DELETE FROM Laeufer
+                    WHERE schüler_id = ?
+                """, (schueler_id,))
 
-            cur.execute("""
-                INSERT INTO Laeufer
-                (name, vorname, klasse, jahrgang, zeit)
-                VALUES (?, ?, ?, ?, ?)
-            """, (name, vorname, klasse, jahrgang, zeit))
+            conn.commit()
+            return redirect("/verwalten")
 
-        if "loeschen" in request.form:
-            schueler_id = request.form["schueler_id"]
+        schueler = cur.execute("""
+            SELECT schüler_id AS id, *
+            FROM Laeufer
+            ORDER BY jahrgang, klasse, name
+        """).fetchall()
 
-            cur.execute("""
-                DELETE FROM Laeufer
-                WHERE rowid = ?
-            """, (int(schueler_id),))
-
-        return redirect("/verwalten")
+    return render_template("verwalten.html", schueler=schueler)
 
     schueler = cur.execute("""
         SELECT rowid AS id, * FROM Laeufer

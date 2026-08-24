@@ -25,14 +25,15 @@ def schüler_aktualisieren(schüler_id, name, Vorname, klasse, sportlehrer,zeit)
     verbindung.commit()
     verbindung.close()
 
-
 def schüler_löschen(schüler_id):
-    verbindung = verbindung_herstellen()
-    cursor = verbindung.cursor()
-    cursor.execute("""
-    DELETE FROM Laeufer
-    WHERE schüler_id = ?
-    """, (schüler_id,))
+    with verbindung_herstellen() as verbindung:
+        verbindung.execute(
+            """
+            DELETE FROM Laeufer
+            WHERE schüler_id = ?
+            """,
+            (schüler_id,)
+        )
     verbindung.commit()
     verbindung.close()
 
