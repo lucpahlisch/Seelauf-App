@@ -1,15 +1,10 @@
 Seelauf App
 
 
-Probleme:
-- Einträge in der Datenbank doppeln sich
-- Interface ist arsch
-
 Noch zu tun:
-- Probleme beheben
-- Hinzufügen von Lehrern und Externen in die Datenbank ermöglichen
-- Bestenliste hinzufügen
 - Stoppuhr hinzufügen
+- Bestenliste hinzufügen
+- Hinzufügen von Lehrern und Externen in die Datenbank ermöglichen
 
 
 
