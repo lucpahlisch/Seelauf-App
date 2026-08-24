@@ -2,9 +2,7 @@ Seelauf App
 
 
 Probleme:
-- Einträge können nicht aus der Datenbank gelöscht werden
 - Einträge in der Datenbank doppeln sich
-- Das hinzufügen von Einträgen in die Datenbank ist profund fehlerhaft
 - Interface ist arsch
 
 Noch zu tun:
