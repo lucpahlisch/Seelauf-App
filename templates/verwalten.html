@@ -76,9 +76,114 @@
                 </div>
             </form>
         </section>
+
+        <section class="form-card stopwatch-card" aria-label="Stopuhr">
+            <div class="stopwatch-header">
+                <h2>Stopuhr</h2>
+                <span id="stopwatch-status" class="stopwatch-status">Gestoppt</span>
+            </div>
+
+            <div id="stopwatch-display" class="stopwatch-display" aria-live="polite">00:00:00</div>
+
+            <div class="stopwatch-controls">
+                <button id="stopwatch-toggle" class="stopwatch-btn primary" type="button">Starten</button>
+                <button id="stopwatch-reset" class="stopwatch-btn secondary" type="button">Zurücksetzen</button>
+                <button id="stopwatch-split" class="stopwatch-btn tertiary" type="button">Zwischenzeit</button>
+            </div>
+
+            <div class="split-list-wrapper">
+                <h3>Zwischenzeiten</h3>
+                <ul id="split-list" class="split-list">
+                    <li>Keine Zwischenzeit erfasst.</li>
+                </ul>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer"></footer>
+
+    <script>
+        const stopwatchDisplay = document.getElementById('stopwatch-display');
+        const stopwatchStatus = document.getElementById('stopwatch-status');
+        const stopwatchToggle = document.getElementById('stopwatch-toggle');
+        const stopwatchReset = document.getElementById('stopwatch-reset');
+        const stopwatchSplit = document.getElementById('stopwatch-split');
+        const splitList = document.getElementById('split-list');
+
+        let stopwatchRunning = false;
+        let stopwatchStart = 0;
+        let stopwatchElapsed = 0;
+        let stopwatchInterval = null;
+        let splitCounter = 0;
+
+        function formatTime(totalMilliseconds) {
+            const totalSeconds = Math.floor(totalMilliseconds / 1000);
+            const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+            const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+            const seconds = String(totalSeconds % 60).padStart(2, '0');
+            return `${hours}:${minutes}:${seconds}`;
+        }
+
+        function updateStopwatch() {
+            stopwatchDisplay.textContent = formatTime(stopwatchElapsed);
+        }
+
+        function addSplit() {
+            if (!stopwatchRunning && stopwatchElapsed === 0) {
+                return;
+            }
+
+            splitCounter += 1;
+            const item = document.createElement('li');
+            item.textContent = `Zwischenzeit ${splitCounter}: ${formatTime(stopwatchElapsed)}`;
+            const firstItem = splitList.querySelector('li');
+
+            if (firstItem && firstItem.textContent.includes('Keine Zwischenzeit')) {
+                splitList.innerHTML = '';
+            }
+
+            splitList.appendChild(item);
+        }
+
+        function startStopwatch() {
+            if (stopwatchRunning) {
+                clearInterval(stopwatchInterval);
+                stopwatchInterval = null;
+                stopwatchRunning = false;
+                stopwatchToggle.textContent = 'Starten';
+                stopwatchStatus.textContent = 'Gestoppt';
+                return;
+            }
+
+            stopwatchRunning = true;
+            stopwatchStart = Date.now() - stopwatchElapsed;
+            stopwatchToggle.textContent = 'Stoppen';
+            stopwatchStatus.textContent = 'Läuft';
+
+            stopwatchInterval = setInterval(() => {
+                stopwatchElapsed = Date.now() - stopwatchStart;
+                updateStopwatch();
+            }, 100);
+        }
+
+        function resetStopwatch() {
+            clearInterval(stopwatchInterval);
+            stopwatchInterval = null;
+            stopwatchRunning = false;
+            stopwatchElapsed = 0;
+            stopwatchStart = 0;
+            splitCounter = 0;
+            stopwatchToggle.textContent = 'Starten';
+            stopwatchStatus.textContent = 'Gestoppt';
+            splitList.innerHTML = '<li>Keine Zwischenzeit erfasst.</li>';
+            updateStopwatch();
+        }
+
+        stopwatchToggle.addEventListener('click', startStopwatch);
+        stopwatchReset.addEventListener('click', resetStopwatch);
+        stopwatchSplit.addEventListener('click', addSplit);
+        updateStopwatch();
+    </script>
 </body>
 </html>
 <!-- ...existing code... -->
