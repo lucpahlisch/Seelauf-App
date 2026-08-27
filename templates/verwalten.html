@@ -7,35 +7,15 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.svg') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <style>
-        .form-card {
-            background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,250,255,0.95));
-            padding: 18px;
-            border-radius: 12px;
-            margin-bottom: 18px;
-            box-shadow: 0 8px 20px rgba(13,36,64,0.04);
-        }
-        .form-grid { display: flex; gap: 12px; flex-wrap: wrap; }
-        .form-grid input, .form-grid select {
-            padding: 10px 12px;
-            border-radius: 10px;
-            border: 1px solid rgba(11,37,64,0.08);
-            font-size: 14px;
-            min-width: 160px;
-        }
-    </style>
 </head>
 <body>
     <header class="site-header">
         <nav class="nav">
             <div class="nav-left">
-                <a class="brand" href="{{ url_for('startseite') }}">
-                    <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Seelauf" class="brand-logo">
-                    <span>Seelauf</span>
-                </a>
+                <a class="btn" href="{{ url_for('startseite') }}">Home</a>
             </div>
             <div class="nav-right">
-                <a class="btn" href="{{ url_for('startseite') }}">Home</a>
+                 <a class="btn" href="{{ url_for('manu') }}">Manu</a>
                 <a class="btn" href="{{ url_for('zeiten') }}">Zeiten</a>
                 <a class="btn" href="{{ url_for('verwalten') }}">Verwalten</a>
             </div>

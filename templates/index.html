@@ -12,13 +12,10 @@
     <header class="site-header">
         <nav class="nav">
             <div class="nav-left">
-                <a class="brand" href="{{ url_for('startseite') }}">
-                    <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Seelauf" class="brand-logo">
-                    <span>Seelauf</span>
-                </a>
+                <a class="btn" href="{{ url_for('startseite') }}">Home</a>
             </div>
             <div class="nav-right">
-                <a class="btn" href="{{ url_for('startseite') }}">Home</a>
+                <a class="btn" href="{{ url_for('manu') }}">Manu</a>
                 <a class="btn" href="{{ url_for('zeiten') }}">Zeiten</a>
                 <a class="btn" href="{{ url_for('verwalten') }}">Verwalten</a>
             </div>
