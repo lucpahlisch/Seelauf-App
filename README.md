@@ -2,10 +2,8 @@ Seelauf App
 
 
 Noch zu tun:
-- Stoppuhr hinzufügen
 - Bestenliste hinzufügen
 - Hinzufügen von Lehrern und Externen in die Datenbank ermöglichen
-
 
 
 
