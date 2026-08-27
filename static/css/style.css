@@ -119,6 +119,123 @@ a.btn:hover, a.btn:active {
     box-shadow: 0 8px 20px rgba(7,52,90,0.08);
 }
 
+/* Stopwatch */
+.stopwatch-card {
+    max-width: 420px;
+    margin: 28px auto 0;
+    padding: 24px 22px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(15,54,93,0.08);
+    border: 1px solid rgba(24,123,199,0.06);
+}
+
+.stopwatch-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.stopwatch-header h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #07345a;
+}
+
+.stopwatch-status {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(24, 123, 199, 0.08);
+    color: #0e5d96;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.stopwatch-display {
+    text-align: center;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #0b2540;
+    background: #f3f9ff;
+    border-radius: 12px;
+    padding: 18px 14px;
+    margin-bottom: 18px;
+    font-variant-numeric: tabular-nums;
+}
+
+.stopwatch-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.stopwatch-btn {
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+
+.stopwatch-btn:hover {
+    transform: translateY(-2px);
+}
+
+.stopwatch-btn.primary {
+    background: linear-gradient(135deg, #187bc7, #1a90d9);
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(24,123,199,0.2);
+}
+
+.stopwatch-btn.secondary {
+    background: #eaf4ff;
+    color: #0b2540;
+}
+
+.stopwatch-btn.tertiary {
+    background: #eef8ef;
+    color: #1d6d3a;
+    border: 1px solid rgba(29,109,58,0.12);
+}
+
+.split-list-wrapper {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(11,37,64,0.08);
+}
+
+.split-list-wrapper h3 {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    color: #07345a;
+}
+
+.split-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #425e78;
+}
+
+.split-list li {
+    background: #f5f9ff;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 0.95rem;
+}
+
 /* Footer */
 .site-footer {
     text-align: center;
