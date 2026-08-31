@@ -127,7 +127,8 @@
             splitList.innerHTML = '';
         }
 
-        splitList.appendChild(item);
+        // Neue Zwischenzeit oben einfügen -> absteigend nach Zeit
+        splitList.insertBefore(item, splitList.firstChild);
     }
 
     function startStopwatch() {
